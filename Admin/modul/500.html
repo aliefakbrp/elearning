@@ -1,8 +1,4 @@
-<?php 
-include '../config/db.php';
-$oke = mysqli_query($con,"select * from tb_sekolah where id_sekolah='1'");
-$oke1 = mysqli_fetch_array($oke);
- ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +39,7 @@ $oke1 = mysqli_fetch_array($oke);
             </div>
             <div class="row mt-5">
               <div class="col-12 mt-xl-2">
-                <p class="text-white font-weight-medium text-center"><?php echo $oke1['copyright'];?>.</p>
+                <p class="text-white font-weight-medium text-center">&copy;2022 MCT</p>
               </div>
             </div>
           </div>
