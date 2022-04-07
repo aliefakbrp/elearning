@@ -49,7 +49,8 @@ $oke1 = mysqli_fetch_array($oke);
   <div class="limiter">
     <div class="container-login100" style="background-image: url('vendor/login/images/bg-01.jpg');">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-        <center><img src="vendor/images/MCT.png" alt="" height="42" width="42"></center>
+        <center><img src="vendor/images/MCT.png" class="animated-logo" alt="" height="42" width="42"></center>
+
         <form method="post" action="" class="login100-form validate-form">
           <span class="login100-form-title p-b-20">
             ONLINE CLASS M’TECH
@@ -107,12 +108,12 @@ $oke1 = mysqli_fetch_array($oke);
         <?php
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          $email = trim(mysqli_real_escape_string($con, $_POST['username']));
+          $username = trim(mysqli_real_escape_string($con, $_POST['username']));
           $pass = sha1($_POST['password']);
           $level = $_POST['level'];
 
           if ($level == '1') {
-            $sql = mysqli_query($con, "SELECT * FROM tb_guru WHERE email='$email' AND password='$pass' AND status='Y' ") or die(mysqli_error($con));
+            $sql = mysqli_query($con, "SELECT * FROM tb_guru WHERE email='$username' AND password='$pass' AND status='Y' ") or die(mysqli_error($con));
             $data = mysqli_fetch_array($sql);
             $id = $data[0];
             $cek = mysqli_num_rows($sql);
@@ -154,7 +155,7 @@ $oke1 = mysqli_fetch_array($oke);
           </script>";
             }
           } elseif ($level == '2') {
-            $sql = mysqli_query($con, "SELECT * FROM tb_siswa WHERE nis='$email' AND password='$pass' AND aktif='Y' ") or die(mysqli_error($con));
+            $sql = mysqli_query($con, "SELECT * FROM tb_siswa WHERE username='$username' AND password='$pass' AND aktif='Y' ") or die(mysqli_error($con));
             $data = mysqli_fetch_array($sql);
             $id = $data[0];
             $cek = mysqli_num_rows($sql);
@@ -162,13 +163,12 @@ $oke1 = mysqli_fetch_array($oke);
             if ($cek > 0) {
 
               $_SESSION['Siswa'] = $id;
-              $_SESSION['username']     = $data['nis'];
+              $_SESSION['username']     = $data['username'];
               $_SESSION['namalengkap']  = $data['nama_siswa'];
               $_SESSION['password']     = $data['password'];
               $_SESSION['nis']          = $data['nis'];
               $_SESSION['id_siswa']          = $data['id_siswa'];
               $_SESSION['kelas']        = $data['id_kelas'];
-              $_SESSION['jurusan']        = $data['id_jurusan'];
               $_SESSION['tingkat']        = $data['tingkat'];
               mysqli_query($con, "UPDATE tb_siswa SET status='Online' WHERE id_siswa='$data[id_siswa]'");
               echo "
@@ -204,7 +204,7 @@ $oke1 = mysqli_fetch_array($oke);
           </script>";
             }
           } elseif ($level == '3') {
-            $sql = mysqli_query($con, "SELECT * FROM tb_admin WHERE username='$email' AND password='$pass' AND aktif='Y' ") or die(mysqli_error($con));
+            $sql = mysqli_query($con, "SELECT * FROM tb_admin WHERE username='$username' AND password='$pass' AND aktif='Y' ") or die(mysqli_error($con));
             $data = mysqli_fetch_array($sql);
             $id = $data[0];
             $cek = mysqli_num_rows($sql);

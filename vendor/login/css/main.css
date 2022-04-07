@@ -372,6 +372,14 @@ iframe {
   left: 0;
 }
 
+/* Image animation */
+.animated-logo{
+  transition: 1s;
+}
+.animated-logo:hover{
+  transform: rotateY(180deg);
+  transition: 1s;
+}
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/

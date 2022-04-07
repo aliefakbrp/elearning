@@ -1,6 +1,7 @@
 <?php
-$con = mysqli_query($con,"UPDATE tb_siswa SET aktif='Y',confirm='Yes' WHERE id_siswa='$_GET[id]' ") or die(mysqli_error($con));
-if ($con) {	
+include 'config/db.php';
+$cone = mysqli_query($con, "UPDATE tb_siswa SET aktif='Y',confirm='Yes' WHERE id_siswa='$_GET[id]' ") or die(mysqli_error($con));
+if ($cone) {
 
 	echo "
 	<script type='text/javascript'>
@@ -18,5 +19,3 @@ if ($con) {
 	} ,3000);   
 	</script>";
 }
-
- ?>

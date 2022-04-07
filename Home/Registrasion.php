@@ -44,7 +44,7 @@
   <div class="limiter">
     <div class="container-login100" style="background-image: url('../vendor/login/images/bg-01.jpg');">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-        <center><img src="../vendor/images/MCT.png" alt="" height="50" width="50"></center>
+        <center><img src="../vendor/images/MCT.png" class="animated-logo" alt="" height="50" width="50"></center>
         <form action="" method="post" class="login100-form validate-form">
           <span class="login100-form-title p-b-20">
             ONLINE CLASS M’TECH
@@ -53,8 +53,8 @@
             SILAHKAN DAFTAR
           </h3>
           <div class="wrap-input100 validate-input m-b-23" data-validate="NIP/NIS harus di isi">
-            <span for="no" class="label-input100 ">NIS</span>
-            <input class="input100" type="text" name="no" placeholder="masukan nis">
+            <span for="username" class="label-input100 ">Username</span>
+            <input class="input100" type="text" name="username" placeholder="masukan username">
             <span class="focus-input100" data-symbol="&#xf206;"></span>
           </div>
 
@@ -65,11 +65,6 @@
             <span class="focus-input100" data-symbol="&#xf206;"></span>
           </div>
 
-          <div class="wrap-input100 validate-input m-b-23" data-validate="email harus di isi">
-            <span for="email" class="label-input100 ">E-MAIL</span>
-            <input class="input100" type="text" name="email" placeholder="email">
-            <span class="focus-input100" data-symbol="&#xf206;"></span>
-          </div>
 
           <div class="wrap-input100 validate-input m-b-23" data-validate="pass harus di isi">
             <span for="password" class="label-input100 ">Password</span>
@@ -83,15 +78,6 @@
             <span class="focus-input100" data-symbol="&#xf190;"></span>
           </div>
 
-          <div class="wrap-input100 validate-input" data-validate="level is required">
-            <span for="level" class="label-input100">Pilih Level User</span>
-            <select name="level" class="form-control" required style="background-color: #212121;border-radius: 7px;color: #fff;font-weight: bold;">
-              <option value="">-- Pilih Level --</option>
-              <!-- <option value="1"> Guru </option>-->
-              <option value="2"> Siswa </option>
-
-            </select>
-          </div>
 
           <div class="wrap-input100 validate-input">
             <span for="kelas" class="label-input100">Pilih Kelas</span>
@@ -107,19 +93,6 @@
             </select>
           </div>
 
-          <!-- <div class="wrap-input100 validate-input" data-validate="jurusan is required">
-            <span for="jurusan" class="label-input100">Pilih Jurusan</span>
-            <select id="jurusan" name="jurusan" class="form-control" required style="background-color: #212121;border-radius: 7px;color: #fff;font-weight: bold;">
-              <option>-- Pilih jurusan --</option>
-              <?php
-              // $sqlJurusan = mysqli_query($con, "SELECT * FROM tb_master_jurusan ORDER BY id_jurusan DESC");
-              // while ($jur = mysqli_fetch_array($sqlJurusan)) {
-              //   echo "<option value='$jur[id_jurusan]'>$jur[jurusan]</option>";
-              // }
-              ?>
-
-            </select>
-          </div> -->
 
           <div class="wrap-input100 validate-input m-b-23" data-validate="jk is required">
             <span class="label-input100">Jenis Kelamin</span>
@@ -147,12 +120,11 @@
 
         if (isset($_POST['Registrasi'])) {
 
-          $no = $_POST['no'];
-          $namaUser = $_POST['nama'];
+          $username = $_POST['username'];
+          $nama = $_POST['nama'];
           $email = $_POST['email'];
           $password = sha1($_POST['password']);
           $confirmasi = sha1($_POST['password1']);
-          $level = $_POST['level'];
           $date = date('Y-m-d');
 
           // cek confirmasi password
@@ -174,50 +146,28 @@
         </script>";
           } else {
 
-            if ($level == 1) {
-              // Simpan ke Tabel guru
-              $sqlGuru = mysqli_query($con, "INSERT INTO tb_guru VALUES(NULL,'$no','$namaUser','$email','$password','default.png','N','$date','No') ") or die(mysqli_error($con));
-              if ($sqlGuru) {
-                echo "
-      <script type='text/javascript'>
-        setTimeout(function () {
-        swal({
-        title: 'Sukses',
-       text:  'Pendaftaran Guru Sukses, Silahkan Tunggu Konfirmasi dari Admin Sistem ..',
-        type: 'success',
-        timer: 3000,
-        showConfirmButton: true
-        });     
-        },10);  
-        window.setTimeout(function(){ 
-        window.location.replace('../index.php');
-        } ,3000);   
-      </script>";
-              }
-            } else {
-
-              $sqlSiswa = mysqli_query($con, "INSERT INTO tb_siswa
-     VALUES(NULL,'$no','$namaUser','$_POST[jk]','$password','off','N','0','default.png','$_POST[kelas]','$_POST[jurusan]','No') ") or die(mysqli_error($con));
-              if ($sqlSiswa) {
-                echo "
-      <script type='text/javascript'>
-        setTimeout(function () {
-        swal({
-        title: 'Sukses',
-        text:  'Pendaftaran Siswa Sukses, Silahkan Tunggu Konfirmasi dari Admin Sistem ..',
-        type: 'success',
-        timer: 3000,
-        showConfirmButton: true
-        });     
-        },10);  
-        window.setTimeout(function(){ 
-        window.location.replace('../index.php');
-        } ,3000);   
-      </script>";
-              }
+            $sqlSiswa = mysqli_query($con, "INSERT INTO tb_siswa
+              VALUES(NULL,'$username','$nama','$_POST[jk]','$password','off','N','0','default.png','$_POST[kelas]','No') ") or die(mysqli_error($con));
+            if ($sqlSiswa) {
+              echo "
+                <script type='text/javascript'>
+                  setTimeout(function () {
+                  swal({
+                  title: 'Sukses',
+                  text:  'Pendaftaran Siswa Sukses, Silahkan Tunggu Konfirmasi dari Admin Sistem ..',
+                  type: 'success',
+                  timer: 3000,
+                  showConfirmButton: true
+                  });     
+                  },10);  
+                  window.setTimeout(function(){ 
+                  window.location.replace('../index.php');
+                  } ,3000);   
+                </script>";
             }
           }
         }
+
 
         ?>
 
