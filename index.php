@@ -8,7 +8,7 @@ $oke1 = mysqli_fetch_array($oke);
 <html lang="en">
 
 <head>
-  <title>E-Learning</title>
+  <title>ONLINE CLASS M’TECH</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--===============================================================================================-->
@@ -35,12 +35,6 @@ $oke1 = mysqli_fetch_array($oke);
   <!--===============================================================================================-->
   <link rel="stylesheet" href="vendor/node_modules/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendor/node_modules/simple-line-icons/css/simple-line-icons.css">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="vendor/css/style.css">
-  <!-- endinject -->
   <link href="vendor/sweetalert/sweetalert.css" rel="stylesheet" />
 </head>
 
