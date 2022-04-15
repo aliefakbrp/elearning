@@ -27,9 +27,8 @@
                                 <?php
                                 $no = 1;
                                 $sql = mysqli_query($con, "SELECT * FROM tb_siswa
-                            INNER JOIN tb_master_kelas ON tb_siswa.id_kelas=tb_master_kelas.id_kelas
-                            
-                         ORDER BY id_siswa ASC");
+                                INNER JOIN tb_master_kelas ON tb_siswa.id_kelas=tb_master_kelas.id_kelas 
+                                ORDER BY id_siswa ASC");
                                 foreach ($sql as $d) { ?>
                                     <tr>
                                         <td width="50"><b><?= $no++; ?>.</b> </td>
