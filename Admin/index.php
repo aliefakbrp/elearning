@@ -223,18 +223,6 @@ if (@$_SESSION['Admin']) {
           } elseif ($act == 'del') {
             include 'modul/kelas/del_kelas.php';
           }
-        } elseif ($page == 'jurusan') {
-          if ($act == '') {
-            include 'modul/jurusan/data_jurusan.php';
-          } elseif ($act == 'del') {
-            include 'modul/jurusan/del_jurusan.php';
-          }
-        } elseif ($page == 'semester') {
-          if ($act == '') {
-            include 'modul/semester/data_semester.php';
-          } elseif ($act == 'del') {
-            include 'modul/semester/del_semester.php';
-          }
         } elseif ($page == 'mapel') {
           if ($act == '') {
             include 'modul/mapel/data_mapel.php';
