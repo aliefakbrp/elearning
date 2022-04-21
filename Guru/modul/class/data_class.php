@@ -55,7 +55,8 @@
                       INNER JOIN tb_roleguru ON tb_master_kelas.id_kelas=tb_roleguru.id_kelas
 
                       
-                     WHERE tb_roleguru.id_guru='$sesi' ORDER BY id_perangkat DESC ");
+                     WHERE tb_roleguru.id_guru='$sesi' ORDER BY id_kelas DESC ");
+                                    echo 'sql role' . $sqlrole;
 
                                     foreach ($sqlrole as $row) { ?>
 

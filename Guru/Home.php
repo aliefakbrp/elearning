@@ -170,8 +170,8 @@ $ujian = $objektif + $essay;
           <?php
           // query pesan
 
-          $query_daftar_pesan = mysqli_query($con, "SELECT P.*, M.nis, M.nama_siswa,M.foto,M.id_kelas,M.id_jurusan
-  FROM pesan P, tb_siswa M WHERE P.id_pengirim=M.nis AND P.id_penerima='$data[nik]' AND P.id_kelas='$rg[id_kelas]' AND P.id_jurusan='$rg[id_jurusan]' ORDER BY P.id_pesan DESC");
+          $query_daftar_pesan = mysqli_query($con, "SELECT P.*, M.username, M.nama_siswa,M.foto,M.id_kelas
+  FROM pesan P, tb_siswa M WHERE P.id_pengirim=M.username AND P.id_penerima='$data[nik]' AND P.id_kelas='$rg[id_kelas]' ORDER BY P.id_pesan DESC");
 
           while ($daftar_pesan = mysqli_fetch_array($query_daftar_pesan)) {
             $kelas = mysqli_query($con, "SELECT kelas FROM tb_master_kelas WHERE id_kelas='$daftar_pesan[id_kelas]' ");
