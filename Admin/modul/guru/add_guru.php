@@ -51,17 +51,39 @@
                 if ($pindah) {
                   $save = mysqli_query($con, "INSERT INTO tb_guru VALUES(NULL,'$_POST[nip]','$_POST[nama]','$_POST[email]','$pass','$nama_gambar','Y','$date','Yes')");
                   if ($save) {
-                    echo " <script>
-                    alert('Data Berhasil disimpan !');
-                    window.location='?page=guru';
+                    echo " 
+                    <script type='text/javascript'>
+                    setTimeout(function () {
+                    swal({
+                    title: 'Tambah Guru',
+                    text:  'Guru berhasil ditambahkan!',
+                    type: 'success',
+                    timer: 3000,
+                    showConfirmButton: true
+                    });     
+                    },10);  
+                    window.setTimeout(function(){ 
+                    window.location.replace('?page=guru');
+                    } ,3000);   
                     </script>";
                   }
                 } else {
                   $savee = mysqli_query($con, "INSERT INTO tb_guru VALUES(NULL,'$_POST[nip]','$_POST[nama]','$_POST[email]','$pass',NULL,'Y','$date','Yes')");
                   if ($savee) {
-                    echo " <script>
-                    alert('Data Berhasil disimpan !');
-                    window.location='?page=guru';
+                    echo " 
+                    <script type='text/javascript'>
+                    setTimeout(function () {
+                    swal({
+                    title: 'Tambah Guru',
+                    text:  'Guru berhasil ditambahkan!',
+                    type: 'success',
+                    timer: 3000,
+                    showConfirmButton: true
+                    });     
+                    },10);  
+                    window.setTimeout(function(){ 
+                    window.location.replace('?page=guru');
+                    } ,3000);   
                     </script>";
                   }
                 }

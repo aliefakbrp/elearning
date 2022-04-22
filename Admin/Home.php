@@ -1,6 +1,9 @@
 <?php
 include 'config/db.php';
-$oke = mysqli_query($con, "select * from tb_sekolah where id_sekolah='1'");
+if (@$_SESSION['Admin']) {
+  $sesi = @$_SESSION['Admin'];
+}
+$oke = mysqli_query($con, "SELECT * from tb_admin WHERE id_admin='$sesi'");
 $oke1 = mysqli_fetch_array($oke);
 ?>
 <div class="content-wrapper">
@@ -12,11 +15,14 @@ $oke1 = mysqli_fetch_array($oke);
     <div class="col-md-9">
       <div class="card">
         <div class="card-body">
-          <center>
-            <h2>
-              PANEL ADMIN APLIKASI <strong>e-learning</strong> <br>
-              <?php echo $oke1['nama_sekolah']; ?></h2>
-          </center>
+
+          <h2>
+            <strong>SELAMAT DATANG</strong> <br>
+            <?php echo $oke1['nama_lengkap']; ?> <span style="font-weight:normal">DI APLIKASI ONLINE CLASS M'TECH <br>
+              LEMBAGA KURSUS CV. MADURA TECHNOVATION </span>
+
+          </h2>
+
 
         </div>
       </div>

@@ -40,6 +40,7 @@ if (@$_SESSION['Admin']) {
     <link href="../vendor/sweetalert/sweetalert.css" rel="stylesheet" />
     <script type="text/javascript" src="../vendor/ckeditor/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="../vendor/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/login/css/main.css?v=<?php echo time(); ?>">
   </head>
 
   <body>
@@ -48,25 +49,13 @@ if (@$_SESSION['Admin']) {
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: #1991eb;">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center col-lg-3" style="background-color: #1991eb">
           <a class="navbar-brand brand-logo" href="index.php" style="font-family:Aegyptus;font-weight: bold;font-size: 30px;">
-            <img src="../vendor/images/<?= $apl['logo']; ?>" alt="logo" style="height: 45px;width: 45px;border-radius: 10px;">
-            <!-- <i class="fa fa-graduation-cap"></i> --><b><?= $apl['textlogo']; ?></b>
-          </a>
-          <a class="navbar-brand brand-logo-mini" href="index.php">
-            <!-- <img src="../vendor/images/logo.png" alt="logo"/> -->
+            <img src="../vendor/images/MCT.png" class="animated-logo" alt="logo" style="height: 45px;width: 45px;border-radius: 10px;"> <b>M'TECH ONLINE CLASS</b>
+
           </a>
         </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center">
-          <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
-
-            <li class="nav-item" style="width: 400px;">
-              <a href="#" style="color: #fff;text-decoration: none;">
-                <!-- <img src="../vendor/images/smk.png" style="height: 40px;border-radius:10px;"> &nbsp; -->
-                <b><?= $apl['nama_sekolah']; ?></b>
-              </a>
-            </li>
-          </ul>
+        <div class="navbar-menu-wrapper d-flex align-items-center col-lg-8">
           <ul class="navbar-nav navbar-nav-right" style="border-top-left-radius:50px;color: black;border-bottom-left-radius:50px;color: #fff;border:1px dashed #00BCD4; ">
             <?php          // tampilakan notifikasi ujian 
             $ujian = mysqli_query($con, "SELECT * FROM ujian
