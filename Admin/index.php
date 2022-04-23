@@ -179,10 +179,6 @@ if (@$_SESSION['Admin']) {
           </ul>
       </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="?page=setting">
-          <i class="fa fa-gears" style="font-size:20px;"></i> &nbsp;&nbsp;<span class="menu-title">SET APLIKASI</span></a>
-      </li>
 
       <li class="nav-item">
         <a class="nav-link" href="?page=setting&act=user">
@@ -259,9 +255,8 @@ if (@$_SESSION['Admin']) {
             include 'modul/siswa/edit_siswa.php';
           }
         } elseif ($page == 'setting') {
-          if ($act == '') {
-            include 'modul/setting/setting.php';
-          } elseif ($act == 'user') {
+
+          if ($act == 'user') {
             include 'modul/setting/setting_user.php';
           }
         } elseif ($page == 'proses') {
@@ -280,10 +275,10 @@ if (@$_SESSION['Admin']) {
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-info d-block text-center text-sm-left d-sm-inline-block">
-              <?= $apl['copyright']; ?>
+              Copyright&copy; M'TECH ONLINE CLASS 2022
             </span>
 
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><?php echo $apl['nama_sekolah']; ?> <i class="fa fa-graduation-cap text-danger"></i></span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">LEMBAGA KURSUS CV. MADURA TECHNOVATION <i class="fa fa-graduation-cap text-danger"></i></span>
           </div>
         </footer>
         <!-- partial -->
