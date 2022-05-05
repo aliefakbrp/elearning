@@ -1,9 +1,7 @@
 <?php
 session_start();
 include '../config/db.php';
-// memanggil class PHPExcel
-include '../assets/PHPExcel/Classes/PHPExcel.php';
-include '../assets/PHPExcel/Classes/PHPExcel/IOFactory.php';
+
 if (@$_SESSION['Guru']) {
 ?>
   <?php
@@ -48,7 +46,7 @@ if (@$_SESSION['Guru']) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>E-learning | <?= $data['nama_guru']; ?></title>
+    <title>ONLINE CLASS M’TECH | <?= $data['nama_guru']; ?></title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../vendor/node_modules/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../vendor/node_modules/simple-line-icons/css/simple-line-icons.css">
@@ -64,6 +62,7 @@ if (@$_SESSION['Guru']) {
     <link href="../vendor/sweetalert/sweetalert.css" rel="stylesheet" />
     <script type="text/javascript" src="../vendor/ckeditor/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="../vendor/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/login/css/main.css?v=<?php echo time(); ?>">
     <style>
       .wrap {
         margin: 10px auto;
@@ -78,7 +77,7 @@ if (@$_SESSION['Guru']) {
       }
 
       ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0, 3);
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0, 3);
         background: #666;
       }
 
@@ -94,24 +93,14 @@ if (@$_SESSION['Guru']) {
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: #1991eb;">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center col-lg-3" style="background-color: #1991eb">
           <a class="navbar-brand brand-logo" href="index.php" style="font-family:Aegyptus;font-weight: bold;font-size: 30px;">
-            <img src="../vendor/images/<?= $apl['logo']; ?>" alt="logo" style="height: 45px;width: 45px;border-radius: 10px;"> <b><?= $apl['textlogo']; ?></b>
-          </a>
-          <a class="navbar-brand brand-logo-mini" href="index.php">
-            <!-- <img src="../vendor/images/logo.png" alt="logo"/> -->
+            <img src="../vendor/images/MCT.png" class="animated-logo" alt="logo" style="height: 45px;width: 45px;border-radius: 10px;"> <b>M'TECH ONLINE CLASS</b>
+
           </a>
         </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center">
-          <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <div class="navbar-menu-wrapper d-flex align-items-center col-lg-8">
 
-            <li class="nav-item" style="width: 400px;">
-              <a href="#" style="color: #fff;text-decoration: none;">
-                <!-- <img src="../vendor/images/smk.png" style="height: 40px;border-radius:10px;"> &nbsp; -->
-                <b><?= $apl['nama_sekolah']; ?></b>
-              </a>
-            </li>
-          </ul>
           <ul class="navbar-nav navbar-nav-right" style="border-top-left-radius:50px;color: black;border-bottom-left-radius:50px;color: #fff;border:1px dashed #00BCD4; ">
             <?php          // tampilakan notifikasi ujian 
             $ujian = mysqli_query($con, "SELECT * FROM ujian
@@ -392,8 +381,9 @@ if (@$_SESSION['Guru']) {
       <!-- partial:../../partials/_footer.html -->
       <footer class="footer">
         <div class="container-fluid clearfix">
-          <span class="text-info d-block text-center text-sm-left d-sm-inline-block"><?= $apl['copyright']; ?></span>
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><?= $apl['nama_sekolah']; ?> <i class="fa fa-graduation-cap text-danger"></i></span>
+          <span class="text-info d-block text-center text-sm-left d-sm-inline-block">
+            Copyright&copy; M'TECH ONLINE CLASS 2022
+          </span>
         </div>
       </footer>
       <!-- partial -->
